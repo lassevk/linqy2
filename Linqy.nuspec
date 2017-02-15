@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <metadata xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+        <id>linqy</id>
+        <version>1.0.1</version>
+        <title>Linqy</title>
+        <authors>Lasse V. Karlsen</authors>
+        <owners>Lasse V. Karlsen</owners>
+        <licenseUrl>https://bitbucket.org/lassevk/linqy/src/tip/LICENSE.md</licenseUrl>
+        <projectUrl>https://bitbucket.org/lassevk/linqy</projectUrl>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <language>en-US</language>
+        <description>Class library that adds additional LINQ extension methods.</description>
+        <summary>Class library that adds additional LINQ extension methods, such as Lead, Lag, Last, AggregateIf, GroupBy.</summary>
+        <tags>linq</tags>
+    </metadata>
+    <files>
+        <file src="Linqy\bin\Release\*.*" target="lib\net46" />
+        <file src="Linqy.NET35\bin\Release\*.*" target="lib\net35" />
+        <file src="Linqy.NET40\bin\Release\*.*" target="lib\net40" />
+        <file src="Linqy.SL5\bin\Release\*.*" target="lib\sl5" />
+    </files>
+</package>
