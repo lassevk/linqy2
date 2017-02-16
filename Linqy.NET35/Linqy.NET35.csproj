@@ -104,6 +104,9 @@
     <Compile Include="..\Linqy\SelectorEqualityComparer.cs">
       <Link>SelectorEqualityComparer.cs</Link>
     </Compile>
+    <Compile Include="..\Linqy\TakeUntilEnumerable.cs">
+      <Link>TakeUntilEnumerable.cs</Link>
+    </Compile>
     <Compile Include="..\Linqy\WrappingEnumerable.cs">
       <Link>WrappingEnumerable.cs</Link>
     </Compile>

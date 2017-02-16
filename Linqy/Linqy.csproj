@@ -66,6 +66,7 @@
     <Compile Include="PartitionEnumerable.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SelectorEqualityComparer.cs" />
+    <Compile Include="TakeUntilEnumerable.cs" />
     <Compile Include="WrappingEnumerable.cs" />
   </ItemGroup>
   <ItemGroup>

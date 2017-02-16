@@ -68,6 +68,7 @@
     <Compile Include="LagEnumerableTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SelectorEqualityComparerTests.cs" />
+    <Compile Include="TakeUntilEnumerableTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
