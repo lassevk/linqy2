@@ -1,11 +1,8 @@
 # README #
 
-[![Build status](https://ci.appveyor.com/api/projects/status/gnewy3ws3fn3yip8?svg=true)](https://ci.appveyor.com/project/LasseVgstherKarlsen/linqy)
-[![Code Coverage](http://lassevk.bitbucket.org/CodeCoverage/Linqy/badge_combined.svg)](http://lassevk.bitbucket.org/CodeCoverage/Linqy)
+[![Build status](https://ci.appveyor.com/api/projects/status/l08mets8s4w1nu1n/branch/master?svg=true)](https://ci.appveyor.com/project/LasseVgstherKarlsen/linqy/branch/master)
 
 This project will provide a set of new Linq-related extension methods for dealing with collections in various ways.
-
-Click [here](https://discord.gg/6nzxh8z) to join me on Discord for a chat if you want.
 
 ### Contribution Guidelines ###
 
@@ -24,7 +21,6 @@ the tag [Linqy](http://stackoverflow.com/questions/tagged/linqy).
 
 ### Contact Information ###
 
-You can contact me either by:
+You can contact me by:
 
-* [Sending me a message here on Bitbucket](https://bitbucket.org/account/notifications/send/)
 * [Sending me an email to lasse@vkarlsen.no](mailto:lasse@vkarlsen.no)
