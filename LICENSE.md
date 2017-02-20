@@ -1,6 +1,6 @@
 BSD 3-Clause License
 
-Copyright (c) 2010-2016, Lasse V. Karlsen
+Copyright (c) 2010-2017, Lasse V. Karlsen
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
