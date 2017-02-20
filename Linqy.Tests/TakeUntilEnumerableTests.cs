@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using NUnit.Framework;
 
+// ReSharper disable CollectionNeverUpdated.Local
 // ReSharper disable PossibleMultipleEnumeration
 // ReSharper disable AssignNullToNotNullAttribute
 // ReSharper disable ObjectCreationAsStatement
