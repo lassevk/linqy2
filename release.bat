@@ -2,7 +2,7 @@
 
 setlocal
 
-del *.nupkg
+if exist *.nupkg del *.nupkg
 if errorlevel 1 goto error
 
 if "%SIGNINGKEYS%" == "" goto setup
