@@ -1,7 +1,5 @@
 # README #
 
-[![Build status](https://ci.appveyor.com/api/projects/status/l08mets8s4w1nu1n/branch/master?svg=true)](https://ci.appveyor.com/project/LasseVgstherKarlsen/linqy/branch/master)
-
 This project will provide a set of new Linq-related extension methods for dealing with collections in various ways.
 
 ### Contribution Guidelines ###
