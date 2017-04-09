@@ -2,6 +2,8 @@
 
 setlocal
 
+set PROJECT=Linqy
+
 if exist *.nupkg del *.nupkg
 if errorlevel 1 goto error
 
@@ -12,23 +14,23 @@ set /A month=%date:~3,2%
 set /A day=%date:~0,2%
 set /A tm=%time:~0,2%%time:~3,2%
 
-copy "%SIGNINGKEYS%\Lasse V. Karlsen Private.snk" "Linqy\Lasse V. Karlsen.snk"
+copy "%SIGNINGKEYS%\Lasse V. Karlsen Private.snk" "%PROJECT%\Lasse V. Karlsen.snk"
 if errorlevel 1 goto error
 
-if exist Linqy\bin rd /s /q Linqy\bin
+if exist %PROJECT%\bin rd /s /q %PROJECT%\bin
 if errorlevel 1 goto error
 
 nuget restore
 if errorlevel 1 goto error
 
 set VERSION=%year%.%month%.%day%.%tm%
-msbuild Linqy\Linqy.csproj /target:Clean,Rebuild /p:Configuration=Release /p:Version=%VERSION%
+msbuild %PROJECT%\%PROJECT%.csproj /target:Clean,Rebuild /p:Configuration=Release /p:Version=%VERSION%
 if errorlevel 1 goto error
 
-copy Linqy\bin\Release\Linqy*.nupkg .\
+copy %PROJECT%\bin\Release\%PROJECT%*.nupkg .\
 if errorlevel 1 goto error
 
-git checkout "Linqy\Lasse V. Karlsen.snk"
+git checkout "%PROJECT%\Lasse V. Karlsen.snk"
 
 echo=
 echo================================================
@@ -37,7 +39,7 @@ if "%PUSHYESNO%" == "Y" GOTO PUSH
 exit /B 0
 
 :PUSH
-nuget push Linqy.%VERSION%.nupkg -Source https://www.nuget.org/api/v2/package
+nuget push %PROJECT%.%VERSION%.nupkg -Source https://www.nuget.org/api/v2/package
 if errorlevel 1 goto error
 git tag version/%VERSION%
 if errorlevel 1 goto error
@@ -51,5 +53,5 @@ echo Requires SIGNINGKEYS environment variable to be set
 goto exitwitherror
 
 :exitwitherror
-git checkout "Linqy\Lasse V. Karlsen.snk"
+git checkout "%PROJECT%\Lasse V. Karlsen.snk"
 exit /B 1
