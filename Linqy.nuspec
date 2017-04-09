@@ -6,8 +6,8 @@
         <title>Linqy</title>
         <authors>Lasse V. Karlsen</authors>
         <owners>Lasse V. Karlsen</owners>
-        <licenseUrl>https://bitbucket.org/lassevk/linqy/src/tip/LICENSE.md</licenseUrl>
-        <projectUrl>https://bitbucket.org/lassevk/linqy</projectUrl>
+        <licenseUrl>https://github.com/lassevk/linqy/blob/master/LICENSE.md</licenseUrl>
+        <projectUrl>https://github.com/lassevk/linqy</projectUrl>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
         <language>en-US</language>
         <description>Class library that adds additional LINQ extension methods.</description>

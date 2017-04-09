@@ -699,5 +699,33 @@ namespace Linqy
         {
             return new AllWithMinEnumerable<T, TSelector>(collection, selectorFunc, comparer);
         }
+
+        /// <summary>
+        /// Returns elements from a sequence until a specified condition is <c>true</c>, up to and including the item for
+        /// which the condition was <c>true</c>.
+        /// </summary>
+        /// <typeparam name="T">
+        /// The type of elements in the collection.
+        /// </typeparam>
+        /// <param name="collection">
+        /// A sequence to return elements from.
+        /// </param>
+        /// <param name="predicate">
+        /// A function to test each element for a condition.
+        /// </param>
+        /// <returns>
+        /// An <see cref="IEnumerable{T}"/> that contains the elements from the input <paramref name="collection"/>
+        /// that occur up to and including the element for which the test passes.
+        /// </returns>
+        /// <exception cref="ArgumentNullException">
+        /// <para><paramref name="collection"/> is <c>null</c>.</para>
+        /// <para>- or -</para>
+        /// <para><paramref name="predicate"/> is <c>null</c>.</para>
+        /// </exception>
+        [NotNull, ItemNotNull]
+        public static IEnumerable<T> TakeUntil<T>([NotNull] this IEnumerable<T> collection, [NotNull] Predicate<T> predicate)
+        {
+            return new TakeUntilEnumerable<T>(collection, predicate);
+        }
     }
 }
