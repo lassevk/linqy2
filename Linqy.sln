@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.24720.0
+# Visual Studio 15
+VisualStudioVersion = 15.0.26403.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Linqy.Tests", "Linqy.Tests\Linqy.Tests.csproj", "{9F83CD1D-8FEA-4C54-9F29-0F6A56443C69}"
 EndProject
@@ -9,19 +9,15 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Linqy", "Linqy\Linqy.csproj
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{21756CA7-7F89-4E57-AE43-52644BC334B0}"
 	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+		.gitattributes = .gitattributes
+		.gitignore = .gitignore
 		CHANGELOG.md = CHANGELOG.md
 		EXAMPLES.md = EXAMPLES.md
 		LICENSE.md = LICENSE.md
-		Linqy.nuspec = Linqy.nuspec
 		README.md = README.md
 		SIGNING.md = SIGNING.md
 	EndProjectSection
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Linqy.NET35", "Linqy.NET35\Linqy.NET35.csproj", "{52309A5F-DA8D-4C6C-BF34-579732B94D47}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Linqy.NET40", "Linqy.NET40\Linqy.NET40.csproj", "{CFC545C1-B2F1-4418-8BF4-8F6510396F4A}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Linqy.SL5", "Linqy.SL5\Linqy.SL5.csproj", "{6B3AAE8F-21DF-4941-8720-507DA952B1CB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -37,18 +33,6 @@ Global
 		{660B56DB-A2BE-4D34-BEB3-F3311F0070FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{660B56DB-A2BE-4D34-BEB3-F3311F0070FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{660B56DB-A2BE-4D34-BEB3-F3311F0070FC}.Release|Any CPU.Build.0 = Release|Any CPU
-		{52309A5F-DA8D-4C6C-BF34-579732B94D47}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{52309A5F-DA8D-4C6C-BF34-579732B94D47}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{52309A5F-DA8D-4C6C-BF34-579732B94D47}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{52309A5F-DA8D-4C6C-BF34-579732B94D47}.Release|Any CPU.Build.0 = Release|Any CPU
-		{CFC545C1-B2F1-4418-8BF4-8F6510396F4A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CFC545C1-B2F1-4418-8BF4-8F6510396F4A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CFC545C1-B2F1-4418-8BF4-8F6510396F4A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CFC545C1-B2F1-4418-8BF4-8F6510396F4A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6B3AAE8F-21DF-4941-8720-507DA952B1CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6B3AAE8F-21DF-4941-8720-507DA952B1CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6B3AAE8F-21DF-4941-8720-507DA952B1CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6B3AAE8F-21DF-4941-8720-507DA952B1CB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
