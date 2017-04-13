@@ -22,3 +22,11 @@ the tag [Linqy](http://stackoverflow.com/questions/tagged/linqy).
 You can contact me by:
 
 * [Sending me an email to lasse@vkarlsen.no](mailto:lasse@vkarlsen.no)
+
+### GPG Signing
+
+If you want to import my GPG key to verify my commits you can do it
+using one of these commands:
+
+    git cat-file blob pubkey | gpg --import
+    git cat-file blob pubkey | gpg2 --import
