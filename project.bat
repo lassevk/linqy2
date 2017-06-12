@@ -1,5 +1,5 @@
 @echo off
 
 set PROJECT=Linqy
-set SUFFIX=
+set SUFFIX=-beta
 set CONFIGURATION=Debug
