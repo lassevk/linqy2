@@ -727,5 +727,30 @@ namespace Linqy
         {
             return new TakeUntilEnumerable<T>(collection, predicate);
         }
+
+        /// <summary>
+        /// Annotates the given collection by encapsulating each element in a small struct with extra information,
+        /// such as the index of the element, whether the element is the first and/or last element of the collection, and so on.
+        /// </summary>
+        /// <typeparam name="T">
+        /// The type of elements in the collection.
+        /// </typeparam>
+        /// <param name="collection">
+        /// The collection to add an index to.
+        /// </param>
+        /// <param name="startIndex">
+        /// The starting index for the first element.
+        /// </param>
+        /// <returns>
+        /// A collection of <see cref="AnnotatedElement{T}"/> containing the current element and its index.
+        /// </returns>
+        /// <exception cref="ArgumentNullException">
+        /// <para><paramref name="collection"/> is <c>null</c>.</para>
+        /// </exception>
+        [NotNull, ItemNotNull]
+        public static IEnumerable<AnnotatedElement<T>> Annotate<T>([NotNull] this IEnumerable<T> collection, int startIndex = AnnotateEnumerable<T>.DefaultStartIndex)
+        {
+            return new AnnotateEnumerable<T>(collection, startIndex);
+        }
     }
 }
