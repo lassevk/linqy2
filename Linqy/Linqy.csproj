@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard1.0</TargetFramework>
+    <TargetFrameworks>netstandard1.0;net35;net45;net46;net47</TargetFrameworks>
     <Authors>Lasse V. Karlsen</Authors>
     <Company>Lasse V. Karlsen</Company>
     <Description>Class library that adds additional LINQ extension methods.</Description>
