@@ -1,5 +1,3 @@
-@echo off
-
 set PROJECT=Linqy
 
 set GITBRANCH=
