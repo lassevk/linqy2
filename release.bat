@@ -2,52 +2,20 @@
 
 setlocal
 
-for /f "tokens=*" %%i in ('where nunit3-console.exe') do set NUNIT_CONSOLE=%%i
-for /f "tokens=*" %%i in ('where dotcover.exe') do set DOTCOVER_CONSOLE=%%i
 for /f "tokens=*" %%i in ('where git.exe') do set GIT_CONSOLE=%%i
-
-if "%DOTCOVER_CONSOLE%" == "" goto NO_DOTCOVER
-if "%NUNIT_CONSOLE%" == "" goto NO_NUNIT
 if "%GIT_CONSOLE%" == "" goto NO_GIT
-
-call project.bat
-
-if exist *.nupkg del *.nupkg
-if errorlevel 1 goto error
-
 if "%SIGNINGKEYS%" == "" goto setup
 
-set /A year=1%date:~6,4%-10000
-set /A month=1%date:~3,2%-100
-set /A day=1%date:~0,2%-100
-set /A tm=%time:~0,2%%time:~3,2%
+set RELEASE_KEY=USE_RELEASE_KEY
 
 copy "%SIGNINGKEYS%\Lasse V. Karlsen Private.snk" "%PROJECT%\Lasse V. Karlsen.snk"
-if errorlevel 1 goto error
 
-for /d %%f in (*.*) do (
-    if exist "%%f\bin" rd /s /q "%%f\bin"
-    if errorlevel 1 goto error
-    if exist "%%f\obj" rd /s /q "%%f\obj"
-    if errorlevel 1 goto error
-)
-if errorlevel 1 goto error
-
-nuget restore
-if errorlevel 1 goto error
-
-set VERSION=%year%.%month%.%day%.%tm%
-msbuild "%PROJECT%.sln" /target:Clean,Rebuild /p:Configuration=%CONFIGURATION% /p:Version=%VERSION%%SUFFIX% /p:AssemblyVersion=%VERSION% /p:FileVersion=%VERSION% /p:DefineConstants="%CONFIGURATION%;USE_RELEASE_KEY" /verbosity:minimal
-if errorlevel 1 goto error
-
-set TESTDLL=%CD%\%PROJECT%.Tests\bin\%CONFIGURATION%\%PROJECT%.Tests.dll
-if exist "%TESTDLL%" "%DOTCOVER_CONSOLE%" analyze /Output="%PROJECT%-CodeCoverage.html" /ReportType="HTML" /TargetExecutable="%NUNIT_CONSOLE%" /TargetArguments="%TESTDLL% --work=""%CD%"""
-if errorlevel 1 goto error
-
-copy %PROJECT%\bin\%CONFIGURATION%\%PROJECT%*.nupkg .\
+call project.bat
+call build.bat
 if errorlevel 1 goto error
 
 "%GIT_CONSOLE%" checkout "%PROJECT%\Lasse V. Karlsen.snk"
+if errorlevel 1 goto error
 
 echo=
 echo================================================
