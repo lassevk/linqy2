@@ -3,6 +3,10 @@
 ##
 ## Get latest from https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
 
+# Backup files
+*.~*
+*.bak
+
 # User-specific files
 *.suo
 *.user
@@ -123,7 +127,9 @@ _TeamCity*
 *.coveragexml
 
 # NCrunch
-_NCrunch_*
+_[Nn][Cc]runch_*
+*.ncrunchproject
+*.ncrunchsolution
 .*crunch*.local.xml
 nCrunchTemp_*
 
