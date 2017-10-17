@@ -26,10 +26,7 @@ namespace Linqy
         /// </param>
         public ReverseComparer([NotNull] IComparer<T> comparer)
         {
-            if (comparer == null)
-                throw new ArgumentNullException(nameof(comparer));
-
-            _Comparer = comparer;
+            _Comparer = comparer ?? throw new ArgumentNullException(nameof(comparer));
         }
 
         /// <summary>

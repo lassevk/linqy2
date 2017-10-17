@@ -33,10 +33,7 @@ namespace Linqy
         public GroupIfEnumerable([NotNull] IEnumerable<T> collection, [NotNull] Func<T, T, bool> groupPredicate)
             : base(collection)
         {
-            if (groupPredicate == null)
-                throw new ArgumentNullException(nameof(groupPredicate));
-
-            _GroupPredicate = groupPredicate;
+            _GroupPredicate = groupPredicate ?? throw new ArgumentNullException(nameof(groupPredicate));
         }
 
         /// <summary>

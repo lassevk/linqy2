@@ -42,10 +42,7 @@ namespace Linqy
         public DistinctByEnumerable([NotNull] IEnumerable<T> collection, [NotNull] Func<T, TSelector> selectorFunc, [CanBeNull] IEqualityComparer<TSelector> equalityComparer = null)
             : base(collection)
         {
-            if (selectorFunc == null)
-                throw new ArgumentNullException(nameof(selectorFunc));
-
-            _SelectorFunc = selectorFunc;
+            _SelectorFunc = selectorFunc ?? throw new ArgumentNullException(nameof(selectorFunc));
             _EqualityComparer = equalityComparer ?? EqualityComparer<TSelector>.Default;
         }
 

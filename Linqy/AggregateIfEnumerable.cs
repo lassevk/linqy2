@@ -63,19 +63,10 @@ namespace Linqy
         public AggregateIfEnumerable([NotNull] IEnumerable<TElement> collection, [NotNull] Func<TElement, TElement, bool> aggregatePredicate, [NotNull] Func<TAggregate> getSeed, [NotNull] Func<TAggregate, TElement, TAggregate> aggregateFunc, [NotNull] Func<TAggregate, TResult> resultSelector)
             : base(collection)
         {
-            if (aggregatePredicate == null)
-                throw new ArgumentNullException(nameof(aggregatePredicate));
-            if (getSeed == null)
-                throw new ArgumentNullException(nameof(getSeed));
-            if (aggregateFunc == null)
-                throw new ArgumentNullException(nameof(aggregateFunc));
-            if (resultSelector == null)
-                throw new ArgumentNullException(nameof(resultSelector));
-
-            _AggregatePredicate = aggregatePredicate;
-            _GetSeed = getSeed;
-            _AggregateFunc = aggregateFunc;
-            _ResultSelector = resultSelector;
+            _AggregatePredicate = aggregatePredicate ?? throw new ArgumentNullException(nameof(aggregatePredicate));
+            _GetSeed = getSeed ?? throw new ArgumentNullException(nameof(getSeed));
+            _AggregateFunc = aggregateFunc ?? throw new ArgumentNullException(nameof(aggregateFunc));
+            _ResultSelector = resultSelector ?? throw new ArgumentNullException(nameof(resultSelector));
         }
 
         /// <summary>

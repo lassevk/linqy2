@@ -27,10 +27,7 @@ namespace Linqy
         /// </exception>
         protected WrappingEnumerable([NotNull] IEnumerable<TInput> collection)
         {
-            if (collection == null)
-                throw new ArgumentNullException(nameof(collection));
-
-            Collection = collection;
+            Collection = collection ?? throw new ArgumentNullException(nameof(collection));
         }
 
         /// <summary>

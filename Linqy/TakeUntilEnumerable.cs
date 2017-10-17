@@ -35,13 +35,8 @@ namespace Linqy
         /// </exception>
         public TakeUntilEnumerable([NotNull] IEnumerable<T> collection, [NotNull] Predicate<T> predicate)
         {
-            if (collection == null)
-                throw new ArgumentNullException(nameof(collection));
-            if (predicate == null)
-                throw new ArgumentNullException(nameof(predicate));
-
-            _Collection = collection;
-            _Predicate = predicate;
+            _Collection = collection ?? throw new ArgumentNullException(nameof(collection));
+            _Predicate = predicate ?? throw new ArgumentNullException(nameof(predicate));
         }
 
         IEnumerator IEnumerable.GetEnumerator()

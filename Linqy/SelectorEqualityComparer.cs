@@ -37,10 +37,7 @@ namespace Linqy
         /// </exception>
         public SelectorEqualityComparer([NotNull] Func<T, TSelector> selectorFunc, [CanBeNull] IEqualityComparer<TSelector> equalityComparer = null)
         {
-            if (selectorFunc == null)
-                throw new ArgumentNullException(nameof(selectorFunc));
-
-            _SelectorFunc = selectorFunc;
+            _SelectorFunc = selectorFunc ?? throw new ArgumentNullException(nameof(selectorFunc));
             _EqualityComparer = equalityComparer ?? EqualityComparer<TSelector>.Default;
         }
 

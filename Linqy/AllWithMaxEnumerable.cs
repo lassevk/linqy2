@@ -42,10 +42,7 @@ namespace Linqy
         public AllWithMaxEnumerable([NotNull] IEnumerable<T> collection, [NotNull] Func<T, TSelector> selectorFunc, [CanBeNull] IComparer<TSelector> comparer = null)
             : base(collection)
         {
-            if (selectorFunc == null)
-                throw new ArgumentNullException(nameof(selectorFunc));
-
-            _SelectorFunc = selectorFunc;
+            _SelectorFunc = selectorFunc ?? throw new ArgumentNullException(nameof(selectorFunc));
             _Comparer = comparer ?? Comparer<TSelector>.Default;
         }
 
