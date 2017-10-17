@@ -752,5 +752,57 @@ namespace Linqy
         {
             return new AnnotateEnumerable<T>(collection, startIndex);
         }
+
+        /// <summary>
+        /// Evaluates whether the collection has at least the specified number of elements. This is done using early
+        /// exit so as soon as the answer is found during enumeration over the collection it will be returned.
+        /// </summary>
+        /// <typeparam name="T">
+        /// The type of elements in the collection.
+        /// </typeparam>
+        /// <param name="collection">
+        /// The collection to verify that has at least <paramref name="count"/> elements.
+        /// </param>
+        /// <param name="count">
+        /// The number of elements to verify that <paramref name="collection"/> has.
+        /// </param>
+        /// <returns>
+        /// <c>true</c> if <paramref name="collection"/> has at least <paramref name="count"/> elements;
+        /// otherwise, <c>false</c>.
+        /// </returns>
+        /// <remarks>
+        /// Note that if <paramref name="count"/> is equal to or less than 0, the collection is not consumed or enumerated
+        /// at all, the result will simply be <c>true</c>.
+        /// </remarks>
+        public static bool HasAtLeast<T>([NotNull] this IEnumerable<T> collection, int count)
+        {
+            return new HasAtLeastCollectionCriteria<T>(collection, count).GetValue();
+        }
+
+        /// <summary>
+        /// Evaluates whether the collection has at most the specified number of elements. This is done using early
+        /// exit so as soon as the answer is found during enumeration over the collection it will be returned.
+        /// </summary>
+        /// <typeparam name="T">
+        /// The type of elements in the collection.
+        /// </typeparam>
+        /// <param name="collection">
+        /// The collection to verify that has at most <paramref name="count"/> elements.
+        /// </param>
+        /// <param name="count">
+        /// The number of elements to verify that <paramref name="collection"/> has.
+        /// </param>
+        /// <returns>
+        /// <c>true</c> if <paramref name="collection"/> has at most <paramref name="count"/> elements;
+        /// otherwise, <c>false</c>.
+        /// </returns>
+        /// <remarks>
+        /// Note that if <paramref name="count"/> is less than 0, the collection is not consumed or enumerated
+        /// at all, the result will simply be <c>false</c>.
+        /// </remarks>
+        public static bool HasAtMost<T>([NotNull] this IEnumerable<T> collection, int count)
+        {
+            return new HasAtMostCollectionCriteria<T>(collection, count).GetValue();
+        }
     }
 }

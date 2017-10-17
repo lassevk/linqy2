@@ -54,6 +54,7 @@
     <Compile Include="AllWithMinEnumerableTests.cs" />
     <Compile Include="AnnotatedElementComparer.cs" />
     <Compile Include="AnnotateEnumerableTests.cs" />
+    <Compile Include="CollectionCriteriaTests.cs" />
     <Compile Include="CollectionExtensionsTests.cs" />
     <Compile Include="DistinctByEnumerableTests.cs" />
     <Compile Include="ExceptLastEnumerableTests.cs" />
