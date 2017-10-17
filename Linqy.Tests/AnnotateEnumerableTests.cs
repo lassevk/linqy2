@@ -3,6 +3,7 @@ using System.Linq;
 
 using NUnit.Framework;
 
+// ReSharper disable RedundantArgumentDefaultValue
 // ReSharper disable ObjectCreationAsStatement
 // ReSharper disable AssignNullToNotNullAttribute
 

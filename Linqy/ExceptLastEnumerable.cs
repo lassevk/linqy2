@@ -39,8 +39,7 @@ namespace Linqy
             if (_Amount == 0)
                 return Collection.GetEnumerator();
 
-            var list = Collection as IList<T>;
-            if (list != null)
+            if (Collection is IList<T> list)
                 return GetListEnumerator(list, _Amount);
 
             return GetEnumerableEnumerator();

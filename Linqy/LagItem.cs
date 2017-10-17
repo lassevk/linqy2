@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using JetBrains.Annotations;
 
+using static Linqy.ReSharperEnsurances;
+
 namespace Linqy
 {
     /// <summary>
@@ -55,6 +57,7 @@ namespace Linqy
         /// <param name="other">An object to compare with this object.</param>
         public bool Equals(LagItem<T> other)
         {
+            assume(EqualityComparer<T>.Default != null);
             return EqualityComparer<T>.Default.Equals(Element, other.Element) && EqualityComparer<T>.Default.Equals(LaggingElement, other.LaggingElement);
         }
 
@@ -69,7 +72,7 @@ namespace Linqy
         {
             if (ReferenceEquals(null, obj))
                 return false;
-            return obj is LagItem<T> && Equals((LagItem<T>)obj);
+            return obj is LagItem<T> item && Equals(item);
         }
 
         /// <summary>
@@ -83,6 +86,7 @@ namespace Linqy
         {
             unchecked
             {
+                assume(EqualityComparer<T>.Default != null);
                 return (EqualityComparer<T>.Default.GetHashCode(Element) * 397) ^ EqualityComparer<T>.Default.GetHashCode(LaggingElement);
             }
         }

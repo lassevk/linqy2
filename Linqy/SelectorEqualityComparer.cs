@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using JetBrains.Annotations;
 
+using static Linqy.ReSharperEnsurances;
+
 namespace Linqy
 {
     /// <summary>
@@ -38,6 +40,7 @@ namespace Linqy
         public SelectorEqualityComparer([NotNull] Func<T, TSelector> selectorFunc, [CanBeNull] IEqualityComparer<TSelector> equalityComparer = null)
         {
             _SelectorFunc = selectorFunc ?? throw new ArgumentNullException(nameof(selectorFunc));
+            assume(EqualityComparer<TSelector>.Default != null);
             _EqualityComparer = equalityComparer ?? EqualityComparer<TSelector>.Default;
         }
 

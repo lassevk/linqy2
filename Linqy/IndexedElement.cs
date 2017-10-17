@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using JetBrains.Annotations;
 
+using static Linqy.ReSharperEnsurances;
+
 namespace Linqy
 {
     /// <summary>
@@ -54,6 +56,7 @@ namespace Linqy
         /// <param name="other">An object to compare with this object.</param>
         public bool Equals(IndexedElement<T> other)
         {
+            assume(EqualityComparer<T>.Default != null);
             return EqualityComparer<T>.Default.Equals(Element, other.Element) && Index == other.Index;
         }
 
@@ -68,7 +71,7 @@ namespace Linqy
         {
             if (ReferenceEquals(null, obj))
                 return false;
-            return obj is IndexedElement<T> && Equals((IndexedElement<T>)obj);
+            return obj is IndexedElement<T> element && Equals(element);
         }
 
         /// <summary>
@@ -82,6 +85,7 @@ namespace Linqy
         {
             unchecked
             {
+                assume(EqualityComparer<T>.Default != null);
                 return (EqualityComparer<T>.Default.GetHashCode(Element) * 397) ^ Index;
             }
         }

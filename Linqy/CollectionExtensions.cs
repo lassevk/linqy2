@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
 
+using static Linqy.ReSharperEnsurances;
+
 namespace Linqy
 {
     /// <summary>
@@ -324,7 +326,9 @@ namespace Linqy
         [NotNull]
         public static IEnumerable<T> First<T>([NotNull] this IEnumerable<T> collection, int amount)
         {
-            return collection.Take(amount);
+            IEnumerable<T> result = collection.Take(amount);
+            assume(result != null);
+            return result;
         }
 
         /// <summary>
@@ -354,7 +358,9 @@ namespace Linqy
         [NotNull]
         public static IEnumerable<T> ExceptFirst<T>([NotNull] this IEnumerable<T> collection, int amount)
         {
-            return collection.Skip(amount);
+            IEnumerable<T> result = collection.Skip(amount);
+            assume(result != null);
+            return result;
         }
 
         /// <summary>
@@ -520,7 +526,9 @@ namespace Linqy
             if (additionalElements == null)
                 throw new ArgumentNullException(nameof(additionalElements));
 
-            return collection.Concat(additionalElements);
+            IEnumerable<T> result = collection.Concat(additionalElements);
+            assume(result != null);
+            return result;
         }
 
         /// <summary>
@@ -547,10 +555,12 @@ namespace Linqy
             if (collection == null)
                 throw new ArgumentNullException(nameof(collection));
 
-            return collection.Except(new[]
-            {
-                exceptThis
-            });
+            IEnumerable<T> result = collection.Except(new[]
+                                                       {
+                                                           exceptThis
+                                                       });
+            assume(result != null);
+            return result;
         }
 
         /// <summary>
@@ -619,8 +629,10 @@ namespace Linqy
             return collection.Where(element => !string.IsNullOrEmpty(element) && !OnlyConsistsOfWhiteSpace(element));
         }
 
-        private static bool OnlyConsistsOfWhiteSpace([NotNull] string value)
+        private static bool OnlyConsistsOfWhiteSpace(string value)
         {
+            assume(value != null);
+
             // ReSharper disable once LoopCanBeConvertedToQuery
             for (int index = 0; index < value.Length; index++)
                 if (!char.IsWhiteSpace(value, index))
@@ -747,7 +759,7 @@ namespace Linqy
         /// <exception cref="ArgumentNullException">
         /// <para><paramref name="collection"/> is <c>null</c>.</para>
         /// </exception>
-        [NotNull, ItemNotNull]
+        [NotNull]
         public static IEnumerable<AnnotatedElement<T>> Annotate<T>([NotNull] this IEnumerable<T> collection, int startIndex = AnnotateEnumerable<T>.DefaultStartIndex)
         {
             return new AnnotateEnumerable<T>(collection, startIndex);

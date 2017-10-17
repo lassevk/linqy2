@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using JetBrains.Annotations;
 
+using static Linqy.ReSharperEnsurances;
+
 namespace Linqy
 {
     /// <summary>
@@ -41,6 +43,7 @@ namespace Linqy
         [NotNull]
         private static IComparer<TSelector> CreateNegativeComparer([CanBeNull] IComparer<TSelector> comparer)
         {
+            assume(Comparer<TSelector>.Default != null);
             return new ReverseComparer<TSelector>(comparer ?? Comparer<TSelector>.Default);
         }
     }

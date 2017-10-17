@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
 
+using static Linqy.ReSharperEnsurances;
+
 namespace Linqy
 {
     /// <summary>
@@ -41,10 +43,13 @@ namespace Linqy
         public override IEnumerator<T> GetEnumerator()
         {
             if (_Amount == 0)
-                return Enumerable.Empty<T>().GetEnumerator();
+            {
+                IEnumerable<T> emptyEnumerable = Enumerable.Empty<T>();
+                assume(emptyEnumerable != null);
+                return emptyEnumerable.GetEnumerator();
+            }
 
-            var list = Collection as IList<T>;
-            if (list != null)
+            if (Collection is IList<T> list)
                 return GetListEnumerator(list, _Amount);
 
             return GetEnumerableEnumerator();

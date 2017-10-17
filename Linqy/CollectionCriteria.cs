@@ -34,6 +34,7 @@ namespace Linqy
         /// <returns>
         /// <c>true</c> or <c>false</c>.
         /// </returns>
+        // ReSharper disable once UnusedMemberInSuper.Global
         public abstract bool GetValue();
 
         /// <summary>

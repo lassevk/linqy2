@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
 
+using static Linqy.ReSharperEnsurances;
+
 namespace Linqy
 {
     /// <summary>
@@ -65,6 +67,8 @@ namespace Linqy
             var queue = new Queue<T>();
             using (var enumerator = Collection.GetEnumerator())
             {
+                assume(enumerator != null);
+
                 for (int index = 0; index < _Amount; index++)
                 {
                     if (!enumerator.MoveNext())
@@ -86,7 +90,9 @@ namespace Linqy
         [NotNull]
         private IEnumerator<LeadItem<T>> GetNoLeadEnumerator()
         {
-            return Collection.Select(element => new LeadItem<T>(element, element)).GetEnumerator();
+            IEnumerator<LeadItem<T>> result = Collection.Select(element => new LeadItem<T>(element, element)).GetEnumerator();
+            assume(result != null);
+            return result;
         }
     }
 }

@@ -2,6 +2,8 @@
 using System.Collections;
 using System.Collections.Generic;
 
+// ReSharper disable PossibleNullReferenceException
+
 namespace Linqy.Tests
 {
     public class AnnotatedElementComparer<T> : IComparer<AnnotatedElement<T>>, IComparer
