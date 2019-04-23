@@ -1,0 +1,30 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <PackageId>Linqy2</PackageId>
+        <TargetFrameworks>netstandard2.0;netstandard1.0;net35;net45;net46;net47</TargetFrameworks>
+        <Authors>Lasse V. Karlsen</Authors>
+        <Company>Lasse V. Karlsen</Company>
+        <Description>Class library that adds additional LINQ extension methods.</Description>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <Copyright>Copyright (C) Lasse V. Karlsen 2015-2017, All rights reserved</Copyright>
+        <PackageProjectUrl>https://github.com/lassevk/linqy2</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/lassevk/linqy2.git</RepositoryUrl>
+        <RepositoryType>git</RepositoryType>
+        <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+        <SignAssembly>True</SignAssembly>
+        <AssemblyOriginatorKeyFile>Lasse V. Karlsen.snk</AssemblyOriginatorKeyFile>
+        <IncludeSource>true</IncludeSource>
+        <Version>1.0.0</Version>
+        <LangVersion>latest</LangVersion>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+        <DocumentationFile>bin\Release\netstandard1.0\Linqy2.xml</DocumentationFile>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+        <DocumentationFile>bin\Debug\netstandard1.0\Linqy2.xml</DocumentationFile>
+    </PropertyGroup>
+
+</Project>
